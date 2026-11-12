@@ -376,7 +376,7 @@ section[id],header[id]{scroll-margin-top:64px}
     </div>
     <aside class="guide-card" aria-label="評分方式摘要">
       <b>怎麼算分？</b>
-      <div class="weights mini"><div><b>¼</b><small>公報兌現</small></div><div><b>¼</b><small>危機處理</small></div><div><b>¼</b><small>任內新政</small></div><div><b>¼</b><small>地方財政</small></div></div>
+      <div class="weights mini"><div><b>½</b><small>公報兌現</small></div><div><b>¼</b><small>危機處理</small></div><div><b>¼</b><small>地方財政</small></div><div><b>+5</b><small>新政加分</small></div></div>
       <button type="button" class="btn-red" data-open-rules>翻開評分說明書 →</button>
     </aside>
   </header>
@@ -394,6 +394,18 @@ section[id],header[id]{scroll-margin-top:64px}
           <div class="lv"><span class="lvtag c1">查無成果</span><span>公報寫得很具體，但我查不到任何實際作為。舉證責任在承諾的人。</span></div>
           <div class="lv"><span class="lvtag" style="color:var(--pencil)">未查證</span><span>上一版用在 16 縣市還沒查的條目；這一版已全部補查完，每條都蓋了章。</span></div>
           <div class="lv"><span class="lvtag c0">願景型</span><span>只寫方向、沒寫設施、地點、數字或具體作法的條目。願景本來就不好驗收，不算好也不算壞：不計分、不扣分。</span></div>
+        </div>
+        <h3 style="margin-top:20px">總成績怎麼算</h3>
+        <div class="weights">
+          <div><b>½</b><small>公報兌現</small></div>
+          <div><b>¼</b><small>危機處理</small></div>
+          <div><b>¼</b><small>地方財政</small></div>
+          <div><b>+5</b><small>任內新政最多加</small></div>
+        </div>
+        <div class="flags" style="margin-top:10px">
+          <div class="flag"><span class="flagtag blue">主軸</span><span>選民投票看的是公報，所以公報兌現佔一半。</span></div>
+          <div class="flag"><span class="flagtag blue">只加不扣</span><span>公報外的新政策是加分題：每項 4 星以上 +2、3 星 +1，最多 +5。做了一件好事不能抵掉一半的公報跳票。</span></div>
+          <div class="flag"><span class="flagtag gray">資料少往中間拉</span><span>公報一律多放 2 條全體中間值的條目一起平均，可評條目越少、影響越大；危機事件也多放 1 件中間值的事件。沒有資料的項目直接用全體中間值，不加不減。這樣不會因為某項剛好沒資料，就只剩強項被平均。</span></div>
         </div>
       </div>
       <div class="poster">
@@ -432,12 +444,6 @@ section[id],header[id]{scroll-margin-top:64px}
           <div class="flag"><span class="flagtag">扣 10 分</span><span>一審以上判有罪並因此停職，到任期結束都沒復職。</span></div>
           <div class="flag"><span class="flagtag">扣 5 分</span><span>曾判有罪而停職，之後改判較輕罪名並復職。</span></div>
           <div class="flag"><span class="flagtag gray">不扣</span><span>判無罪或沒有被起訴。只看判決結果，不看指控或傳聞。</span></div>
-        </div>
-        <div class="weights">
-          <div><b>¼</b><small>公報兌現</small></div>
-          <div><b>¼</b><small>危機處理</small></div>
-          <div><b>¼</b><small>任內新增政策</small></div>
-          <div><b>¼</b><small>地方財政</small></div>
         </div>
       </div>
     </div>
@@ -493,7 +499,7 @@ section[id],header[id]{scroll-margin-top:64px}
       <ul>
         <li>「查無成果」代表我用公開新聞與政府資料查不到，不保證一定沒做。但公報是寫給全體選民看的承諾，市長有責任讓市民看得到成果，所以舉證責任放在承諾的一方。</li>
         <li>每條政見權重相同，捷運跟一個服務窗口一樣算一條，這是刻意的：選民收到公報時看到的也是並列的一條條承諾。</li>
-        <li>16 縣市是初步查核：每位只查公報裡幾條最具體的承諾、1～2 件危機事件，第一版沒查的條目寫成「未查證」，這一版已全部補查，查兩次都查不到的才給「查無成果」。資料少的首長，總成績會只由一兩項平均而來，參考價值較低。</li>
+        <li>16 縣市是初步查核：每位只查公報裡幾條最具體的承諾、1～2 件危機事件，第一版沒查的條目寫成「未查證」，這一版已全部補查，查兩次都查不到的才給「查無成果」。資料少的項目在總成績裡會往全體中間值拉，不會因為缺資料而只剩強項被平均。</li>
         <li>危機事件挑的是任內最受關注、而且首長有權責的事件，六都每人 2～3 件。事件多寡和媒體關注度有關，台北的事件曝光度天生較高。</li>
         <li>任內新增政策只收「不在公報上」、而且是首長任內自己發起的政策或決定。例如桃園的免費營養午餐沒有寫進公報，所以放在加分題。企業的投資決定（如輝達選址）、中央主導的計畫（如竹科三期）、前任就開始的建設（如大巨蛋、台中綠美圖）都不收，避免把別人的功勞算給首長。</li>
         <li>地方財政用的是審計部審定的決算（2025 年的長期債為決算數）。「爭取經費」用的補助及協助收入，混了照公式分配的一般性補助和要去爭取的計畫型補助，官方沒有按縣市拆開；前瞻基礎建設特別預算給地方的錢也不一定都進縣市總決算，所以這一項是粗估。「建設」用的經濟發展支出也包含農業補貼等非工程支出，離島的交通補貼會讓比例特別高。</li>
@@ -1021,13 +1027,26 @@ MAYORS.forEach(m=>{
   m.extras.forEach(e=>{e[6]=Math.max(0,e[1]-(e[4]||0)-(e[5]||0))});
   m.extraScore=m.extras.length?Math.round(avg(m.extras.map(e=>e[6]))*20):null;
   m.fiscal=FISCAL[m.id];m.fiscalScore=m.fiscal?m.fiscal.score:null;
-  const parts=[m.promiseScore,m.crisisScore,m.extraScore,m.fiscalScore].filter(isNum);
+  m.nP=scored.length;m.nC=m.crises.length;
+  m.bonus=Math.min(5,m.extras.reduce((x,e)=>x+(e[6]>=4?2:e[6]>=3?1:0),0));
   m.deduct=m.legal?m.legal[2]:0;
-  m.total=parts.length?Math.max(0,Math.round(avg(parts))-m.deduct):null;
-  m.parts=parts.length;
-  m.thin=scored.length<3||parts.length<2;
+  m.thin=scored.length<3;
   m.axes=AXES.map(a=>{const s=scored.filter(p=>p[1]===a).map(p=>p[2]);return s.length?avg(s):null});
 });
+/* 總成績：公報 ½、危機 ¼、財政 ¼，新政只加分。資料少的項目往全體中間值拉（公報當作多 2 條、危機當作多 1 件中間值） */
+const median=a=>{a=a.slice().sort((x,y)=>x-y);const n=a.length;return n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2};
+const MED={P:median(MAYORS.filter(m=>isNum(m.promiseScore)).map(m=>m.promiseScore)),C:median(MAYORS.filter(m=>isNum(m.crisisScore)).map(m=>m.crisisScore)),F:median(MAYORS.filter(m=>isNum(m.fiscalScore)).map(m=>m.fiscalScore))};
+const KP=2,KC=1;
+MAYORS.forEach(m=>{
+  m.adjP=Math.round((m.nP*(m.promiseScore||0)+KP*MED.P)/(m.nP+KP));
+  m.adjC=Math.round((m.nC*(m.crisisScore||0)+KC*MED.C)/(m.nC+KC));
+  m.adjF=isNum(m.fiscalScore)?m.fiscalScore:MED.F;
+  m.total=Math.max(0,Math.round(m.adjP/2+m.adjC/4+m.adjF/4+m.bonus-m.deduct));
+});
+const calcNote=m=>{const n=[];
+  if(!m.nP)n.push(`公報沒有可驗收的條目，以全體中間值 ${MED.P} 計`);else if(m.adjP!==m.promiseScore)n.push(`公報 ${m.nP} 條平均 ${m.promiseScore}，加 ${KP} 條全體中間值 ${MED.P} 一起平均 → ${m.adjP}`);
+  if(!m.nC)n.push(`沒有可評的危機事件，以全體中間值 ${MED.C} 計`);else if(m.adjC!==m.crisisScore)n.push(`危機 ${m.nC} 件平均 ${m.crisisScore}，加 1 件中間值 ${MED.C} 一起平均 → ${m.adjC}`);
+  return n.length?`<br><small>${n.join("；")}。</small>`:""};
 const grade=p=>p==null?"－":p>=80?"優":p>=70?"甲":p>=60?"乙":p>=50?"丙":"丁";
 const show=v=>v==null?"—":v;
 (function(){
@@ -1107,7 +1126,7 @@ $("#maplegend").innerHTML=legend();
 drawMap(); peek("kaohsiung");
 
 /* race */
-const MODES=[["total","總成績","公報兌現、危機處理、任內新政、地方財政四項平均，各佔四分之一；缺資料的項目不算；首長本人刑案有罪另外扣分。"],["promiseScore","公報兌現","只算可驗收的條目：兌現 100、大致到位 80、真的在做 60、紙上作業 40、查無成果 20。"],["crisisScore","危機處理","每件事件看四項，○ 2 分、△ 1 分、✕ 0 分，滿分 8 分換算成 100。"],["extraScore","任內新政","不在公報上的新政策：落地星數扣掉執行與方向扣分後，平均 × 20。"],["fiscalScore","地方財政","跟自己上任前四年比：開源（自己賺、向中央爭取）、節流（收支、欠債）、建設，五顆星平均 × 20。"]];
+const MODES=[["total","總成績","公報兌現佔一半，危機處理、地方財政各佔四分之一；任內新政只加分（最多 +5）。可評的條目或事件太少，分數會往全體中間值拉；首長本人刑案有罪另外扣分。"],["promiseScore","公報兌現","只算可驗收的條目：兌現 100、大致到位 80、真的在做 60、紙上作業 40、查無成果 20。"],["crisisScore","危機處理","每件事件看四項，○ 2 分、△ 1 分、✕ 0 分，滿分 8 分換算成 100。"],["extraScore","任內新政","不在公報上的新政策：落地星數扣掉執行與方向扣分後，平均 × 20。"],["fiscalScore","地方財政","跟自己上任前四年比：開源（自己賺、向中央爭取）、節流（收支、欠債）、建設，五顆星平均 × 20。"]];
 let mode="total", grp="metro";
 $("#modes").innerHTML=MODES.map(([k,l])=>`<button type="button" data-k="${k}" aria-pressed="${k===mode}">${l}</button>`).join("");
 $("#groups").innerHTML=[["metro","六都"],["county","16 縣市"],["all","全台 22"],["first","只看首任"],["second","只看連任"]].map(([k,l])=>`<button type="button" data-g="${k}" aria-pressed="${k===grp}">${l}</button>`).join("");
@@ -1178,7 +1197,7 @@ function select(id,fromHash){
      </div>
      <div class="trio"><div><b>${show(m.promiseScore)}</b><small>公報兌現</small></div><div><b>${show(m.crisisScore)}</b><small>危機處理</small></div><div><b>${show(m.extraScore)}</b><small>任內新政</small></div><div><b>${show(m.fiscalScore)}</b><small>地方財政</small></div></div>
      ${m.deduct?`<p class="partnote" style="color:var(--red)">總成績已扣「首長本人司法案件」${m.deduct} 分。</p>`:""}
-     ${m.parts<4?`<p class="partnote">總成績只用了 ${m.parts} 項平均，「—」的項目資料不足，不計入。</p>`:""}
+     <p class="partnote calc">總成績怎麼來：公報 ${m.adjP} × ½ ＋ 危機 ${m.adjC} × ¼ ＋ 財政 ${m.adjF} × ¼${m.bonus?` ＋ 新政加分 ${m.bonus}`:""}${m.deduct?` − 司法 ${m.deduct}`:""} ＝ ${m.total}${calcNote(m)}</p>
     </div>
    </div>
    <div class="two">
@@ -1200,17 +1219,17 @@ function select(id,fromHash){
     ${m.crises.length?`<div class="crises">${m.crises.map(([w,t,d,c])=>`
      <div class="crisis"><div class="when">${w}</div><h4>${esc(t)}</h4><p>${esc(d)}</p>
       <div class="ck">${c.map((v,i)=>`<div class="${["n","m","y"][v]}"><i>${["✕","△","○"][v]}</i>${CKL[i]}</div>`).join("")}</div>
-      <div class="tot">${c.reduce((x,y)=>x+y,0)} / 8</div></div>`).join("")}</div>`:`<p class="empty">這次沒有收錄到足以評分的事件，這一項不計入總成績。</p>`}
+      <div class="tot">${c.reduce((x,y)=>x+y,0)} / 8</div></div>`).join("")}</div>`:`<p class="empty">這次沒有收錄到足以評分的事件，總成績這一項以全體中間值 ${MED.C} 分計，不加不減。</p>`}
    </div>
    ${m.legal?`<div>
     <h3>首長本人的司法案件 <small>${m.legal[2]?`總成績扣 ${m.legal[2]} 分`:"不扣分"}</small></h3>
     <div class="legal ${m.legal[2]?"":"ok"}"><div class="card-ic" aria-hidden="true">${m.legal[2]?"紅牌":"無罪"}</div><div><h4>${esc(m.legal[0])}</h4><p>${esc(m.legal[1])}</p><a href="${m.legal[3]}" target="_blank" rel="noopener">${OUTLET(m.legal[3])}報導 ↗</a></div></div>
    </div>`:""}
    <div>
-    <h3>加分題：公報上沒寫的新政策 <small>星星是我評的「做到程度」：落地星數扣掉執行、方向扣分；左上角標籤是外界的觀感，兩者分開看</small></h3>
+    <h3>加分題：公報上沒寫的新政策 <small>${m.bonus?`總成績加 ${m.bonus} 分（每項 4 星以上 +2、3 星 +1，最多 +5）。`:m.extras.length?"沒有 3 星以上的項目，總成績不加分。":""}星星是我評的「做到程度」：落地星數扣掉執行、方向扣分；左上角標籤是外界的觀感，兩者分開看</small></h3>
     ${m.extras.length?`<div class="extras">${m.extras.map(([t,n,k,d,ex,dr,s])=>`
      <div class="ex"><div class="ex-top"><span class="kind ${k}">外界${k==="good"?"多半叫好":k==="bad"?"多半批評":"褒貶兩極"}</span><span class="starbox"><small>做到程度</small><span class="stars" aria-label="做到程度 ${s} 顆星">${stars(s)}</span></span></div>
-     <h4>${esc(t)}</h4><p>${esc(d)}</p><div class="tally"><span>落地 ${n}</span><span class="${ex?"minus":""}">執行 −${ex||0}</span><span class="${dr?"minus":""}">方向 −${dr||0}</span><b>＝ ${s} 顆星</b></div></div>`).join("")}</div>`:`<p class="empty">這次沒有收錄，這一項不計入總成績。</p>`}
+     <h4>${esc(t)}</h4><p>${esc(d)}</p><div class="tally"><span>落地 ${n}</span><span class="${ex?"minus":""}">執行 −${ex||0}</span><span class="${dr?"minus":""}">方向 −${dr||0}</span><b>＝ ${s} 顆星</b></div></div>`).join("")}</div>`:`<p class="empty">這次沒有收錄，總成績不加分也不扣分。</p>`}
    </div>
    ${m.fiscal?(()=>{const f=m.fiscal,cmp=(d,u)=>d>=0?`比全台中間值好 ${Math.abs(d)} ${u}`:`比全台中間值差 ${Math.abs(d)} ${u}`;
      const pct=v=>(v*100).toFixed(1)+"%";
