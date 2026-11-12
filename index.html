@@ -349,6 +349,15 @@ section[id],header[id]{scroll-margin-top:64px}
 .weights.mini{margin-top:0}.weights.mini div{flex:1 1 50px;padding:4px 6px}.weights.mini b{font-size:20px}
 .rules-dlg{width:min(1100px,calc(100vw - 32px));max-height:calc(100vh - 40px);border:none;border-radius:10px;padding:20px 22px;background:var(--paper);color:var(--ink);box-shadow:0 20px 60px -20px rgba(0,0,0,.5)}
 .rules-dlg::backdrop{background:rgba(0,0,0,.45)}
+.btn-orig{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;margin:-4px 0 14px;padding:10px 14px;border:2px dashed var(--ink);border-radius:10px;background:var(--paper-2);color:var(--ink);font:inherit;font-weight:700;font-size:15px;cursor:pointer;text-align:left}
+.btn-orig small{font-weight:400;font-size:12.5px;color:var(--muted)}
+.btn-orig:hover,.btn-orig:focus-visible{border-style:solid;background:var(--paper)}
+.orig-dlg{width:min(1200px,calc(100vw - 24px))}
+.orig-body{overflow:auto;max-height:calc(100vh - 190px);border:1px solid var(--rule);border-radius:6px;background:#fff}
+.orig-body img{display:block;width:100%;min-width:720px;height:auto}
+.orig-foot{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin-top:12px;font-size:13px;color:var(--muted)}
+.orig-foot a{color:var(--ink);font-weight:700}
+
 .dlg-head{display:flex;justify-content:space-between;align-items:center;position:sticky;top:-20px;background:var(--paper);padding:6px 0;z-index:2}
 .dlg-x{border:2px solid var(--ink);background:var(--paper-2);color:var(--ink);border-radius:999px;width:36px;height:36px;font-size:16px;cursor:pointer}
 
@@ -380,6 +389,11 @@ section[id],header[id]{scroll-margin-top:64px}
       <button type="button" class="btn-red" data-open-rules>翻開評分說明書 →</button>
     </aside>
   </header>
+  <dialog id="orig-dlg" class="rules-dlg orig-dlg" aria-labelledby="orig-h">
+    <div class="dlg-head"><h2 id="orig-h" style="font-size:20px">公報原件</h2><button type="button" class="dlg-x" id="orig-close" aria-label="關閉公報原件">✕</button></div>
+    <div class="orig-body"><img id="orig-img" alt="" loading="lazy" decoding="async"></div>
+    <div class="orig-foot"><span>截自中選會選舉公報，只裁切這位首長的欄位，未做任何修改。手機可左右滑動看完整欄位。</span><a id="orig-link" href="https://eebulletin.cec.gov.tw/?dir=111" target="_blank" rel="noopener">到中選會看完整公報 PDF ↗</a></div>
+  </dialog>
   <dialog id="rules-dlg" class="rules-dlg" aria-labelledby="rules-h">
     <div class="dlg-head"><h2 id="rules-h">評分說明書</h2><button type="button" class="dlg-x" id="rules-close" aria-label="關閉說明書">✕</button></div>
     <p class="muted" style="margin:0 0 16px">22 位首長用同一套班規蓋章。</p>
@@ -510,7 +524,7 @@ section[id],header[id]{scroll-margin-top:64px}
     <details>
       <summary>資料來源</summary>
       <ul>
-        <li><a href="https://eebulletin.cec.gov.tw/?dir=111" target="_blank" rel="noopener">中選會選舉公報檔案庫（111 年六都市長公報 PDF）</a></li>
+        <li><a href="https://eebulletin.cec.gov.tw/?dir=111" target="_blank" rel="noopener">中選會選舉公報檔案庫（111 年 22 縣市首長公報 PDF）</a>；每本聯絡簿都有「看公報原件」，可以直接對照首長本人的政見欄</li>
         <li><a href="https://money.udn.com/money/story/7307/9809727" target="_blank" rel="noopener">經濟日報：將軍漁港水產加工中心啟用</a>、<a href="https://cna.com.tw/news/aloc/202610270095.aspx" target="_blank" rel="noopener">中央社：玉井冷鏈物流中心試運轉</a>、<a href="https://www.cna.com.tw/news/aloc/202404080267.aspx" target="_blank" rel="noopener">中央社：台南鳳梨前進新加坡</a>、<a href="https://www.cna.com.tw/news/aloc/202409060239.aspx" target="_blank" rel="noopener">中央社：荷蘭超市上架台南鳳梨</a>、<a href="https://udn.com/news/story/6656/9495299" target="_blank" rel="noopener">聯合報：議員質疑出訪成效</a></li>
         <li><a href="https://cna.com.tw/news/ahel/202610110027.aspx" target="_blank" rel="noopener">中央社：台南鐵路地下化通車</a>、<a href="https://news.pts.org.tw/article/799307" target="_blank" rel="noopener">公視：台南捷運藍線</a></li>
         <li><a href="https://www.storm.mg/lifestyle/11139703" target="_blank" rel="noopener">風傳媒：桃園鐵路地下化延至 2033</a>、<a href="https://news.pts.org.tw/article/822723" target="_blank" rel="noopener">公視：中豐北轉運站</a>、<a href="https://news.pts.org.tw/article/815191" target="_blank" rel="noopener">公視：桃園可負擔住宅</a></li>
@@ -942,7 +956,7 @@ const COUNTIES=[
   comment:"5G 行動急診室救回不少人，極限運動公園也快完工，是全台縣市都該學的成果。但青年住宅、原民實驗劇場、雨水下水道三項查不到。颱風來時人在國外，是首長不該犯的錯。"},
 
  {id:"penghu",city:"澎湖縣",name:"陳光復",party:"民進黨",status:"2026/2 受傷住院，副縣長林皆興代理",group:"county",
-  quote:"六大類 22 項，幾乎每項都寫了對象、金額或地點，是縣市裡最具體的一份。",
+  quote:"六大類 22 項，幾乎每項都寫了對象、金額或地點，可以逐條驗收。",
   promises:[
    ["縣民免費接種肺炎鏈球菌及 HPV 疫苗","社福醫療",4,"推出 5 項澎湖限定公費疫苗，含 HPV（13–14 歲）與肺炎鏈球菌（60–64 歲），對象比公報寫的窄。"],
    ["補助 65 歲以上長者假牙（全口 4 萬、半口 2 萬）","社福醫療",4,"長者假牙補助已完成超過 1,200 件。"],
@@ -1212,6 +1226,7 @@ function select(id,fromHash){
     <div style="min-width:0">
      <h3>2022 公報上寫了什麼 <small>共 ${m.promises.length} 條，${vague.length} 條是願景型${unk.length?`，${unk.length} 條還沒查證`:""}</small></h3>
      <p class="quote">${esc(m.quote)}</p>
+     <button type="button" class="btn-orig" data-orig="${m.id}"><span aria-hidden="true">📄</span> 看公報原件<small>中選會 2022 選舉公報，這位首長的政見欄</small></button>
      ${scored.length?`<div class="notes">${scored.map(([t,q,s,d,f])=>`
       <div class="note" data-s="${s}"><div class="top"><span class="lvtag ${LV[s][1]}">${LV[s][0]}</span><span class="q">${q}</span></div>
        <h4>${esc(t)}</h4><p>${esc(d)}</p>${s>=4&&PROOF[t]?`<div class="proof"><span>兌現時間</span>${esc(PROOF[t][0])}<br><span>佐證</span><a href="${PROOF[t][2]}" target="_blank" rel="noopener">${OUTLET(PROOF[t][2])}：${esc(PROOF[t][1])} ↗</a></div>`:""}${f?`<span class="flagtag ${FLAGCLS[f]}">${f}</span>`:""}</div>`).join("")}</div>`:`<p class="empty">沒有任何一條可以驗收，所以這一項沒有分數。</p>`}
@@ -1336,9 +1351,19 @@ function answer(b){
   $("#q-next").onclick=()=>{qi++;renderQ()};$("#q-next").focus({preventScroll:true});
 }
 /* rules dialog */
+const CEC={"taipei": "https://eebulletin.cec.gov.tw/111/02%E8%87%BA%E5%8C%97%E5%B8%82/01%E5%B8%82%E9%95%B7/%E8%87%BA%E5%8C%97%E5%B8%82%E5%B8%82%E9%95%B7.pdf", "newtaipei": "https://eebulletin.cec.gov.tw/111/03%E6%96%B0%E5%8C%97%E5%B8%82/01%E5%B8%82%E9%95%B7/%E6%96%B0%E5%8C%97%E5%B8%82%E5%B8%82%E9%95%B7.pdf", "taoyuan": "https://eebulletin.cec.gov.tw/111/04%E6%A1%83%E5%9C%92%E5%B8%82/01%E5%B8%82%E9%95%B7/%E6%A1%83%E5%9C%92%E5%B8%82%E7%AC%AC3%E5%B1%86%E5%B8%82%E9%95%B7%E9%81%B8%E8%88%89%E9%81%B8%E8%88%89%E5%85%AC%E5%A0%B1.pdf", "taichung": "https://eebulletin.cec.gov.tw/111/05%E8%87%BA%E4%B8%AD%E5%B8%82/01%E5%B8%82%E9%95%B7/%E8%87%BA%E4%B8%AD%E5%B8%82%E5%B8%82%E9%95%B7.pdf", "tainan": "https://eebulletin.cec.gov.tw/111/06%E8%87%BA%E5%8D%97%E5%B8%82/01%E5%B8%82%E9%95%B7/%E5%B8%82%E9%95%B7.pdf", "kaohsiung": "https://eebulletin.cec.gov.tw/111/07%E9%AB%98%E9%9B%84%E5%B8%82/01%E7%9B%B4%E8%BD%84%E5%B8%82%E9%95%B7/%E9%AB%98%E9%9B%84%E5%B8%82%E5%B8%82%E9%95%B7%E9%81%B8%E8%88%89%E5%85%AC%E5%A0%B1.pdf", "hsinchuc": "https://eebulletin.cec.gov.tw/111/08%E6%96%B0%E7%AB%B9%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%B8%A3%E9%95%B7.pdf", "miaoli": "https://eebulletin.cec.gov.tw/111/09%E8%8B%97%E6%A0%97%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E7%B8%A3%E9%95%B7%E9%81%B8%E8%88%89%E5%85%AC%E5%A0%B1.pdf", "changhua": "https://eebulletin.cec.gov.tw/111/10%E5%BD%B0%E5%8C%96%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E5%BD%B0%E5%8C%96%E7%B8%A3%E7%B8%A3%E9%95%B7%20.pdf", "nantou": "https://eebulletin.cec.gov.tw/111/11%E5%8D%97%E6%8A%95%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E5%8D%97%E6%8A%95%E7%B8%A3%E7%B8%A3%E9%95%B7%E9%81%B8%E8%88%89.pdf", "yunlin": "https://eebulletin.cec.gov.tw/111/12%E9%9B%B2%E6%9E%97%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E9%9B%B2%E6%9E%97%E7%B8%A3%E7%B8%A3%E9%95%B7.pdf", "chiayic": "https://eebulletin.cec.gov.tw/111/13%E5%98%89%E7%BE%A9%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E5%98%89%E7%BE%A9%E7%B8%A3%E7%B8%A3%E9%95%B7.pdf", "pingtung": "https://eebulletin.cec.gov.tw/111/14%E5%B1%8F%E6%9D%B1%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E7%B8%A3%E9%95%B7.pdf", "yilan": "https://eebulletin.cec.gov.tw/111/15%E5%AE%9C%E8%98%AD%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E5%AE%9C%E8%98%AD%E7%B8%A3%E7%B8%A3%E9%95%B7%E9%81%B8%E8%88%89%E5%85%AC%E5%A0%B1.pdf", "hualien": "https://eebulletin.cec.gov.tw/111/16%E8%8A%B1%E8%93%AE%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E8%8A%B1%E8%93%AE%E7%B8%A3%E7%B8%A3%E9%95%B7.pdf", "taitung": "https://eebulletin.cec.gov.tw/111/17%E8%87%BA%E6%9D%B1%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E7%B8%A3%E9%95%B7%E5%85%AC%E5%A0%B1.pdf", "penghu": "https://eebulletin.cec.gov.tw/111/18%E6%BE%8E%E6%B9%96%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E6%BE%8E%E6%B9%96%E7%B8%A3%E7%B8%A3%E9%95%B7.pdf", "kinmen": "https://eebulletin.cec.gov.tw/111/19%E9%87%91%E9%96%80%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E7%B8%A3%E9%95%B7%E5%85%AC%E5%A0%B1.pdf", "lienchiang": "https://eebulletin.cec.gov.tw/111/20%E9%80%A3%E6%B1%9F%E7%B8%A3/01%E7%B8%A3%E9%95%B7/%E9%80%A3%E6%B1%9F%E9%81%B8%E8%88%89%E5%85%AC%E5%A0%B1-%E5%8D%97%E7%AB%BF%E9%84%89.pdf", "keelung": "https://eebulletin.cec.gov.tw/111/21%E5%9F%BA%E9%9A%86%E5%B8%82/01%E5%B8%82%E9%95%B7/%E5%9F%BA%E9%9A%86%E5%B8%82%E9%95%B7%E9%81%B8%E8%88%89%E5%85%AC%E5%A0%B1.pdf", "hsinchu": "https://eebulletin.cec.gov.tw/111/22%E6%96%B0%E7%AB%B9%E5%B8%82/01%E5%B8%82%E9%95%B7/%E6%96%B0%E7%AB%B9%E5%B8%82%E5%B8%82%E9%95%B7.pdf", "chiayi": "https://eebulletin.cec.gov.tw/111/23%E5%98%89%E7%BE%A9%E5%B8%82/01%E5%B8%82%E9%95%B7/%E5%98%89%E7%BE%A9%E5%B8%82%E7%AC%AC11%E5%B1%86%E5%B8%82%E9%95%B7%E9%87%8D%E8%A1%8C%E9%81%B8%E8%88%89%E9%81%B8%E8%88%89%E5%85%AC%E5%A0%B1.pdf"};
 const dlg=$("#rules-dlg");
 document.querySelectorAll("[data-open-rules]").forEach(b=>b.onclick=()=>{if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","")});
 $("#rules-close").onclick=()=>dlg.close?dlg.close():dlg.removeAttribute("open");
+/* 公報原件 */
+const odlg=$("#orig-dlg");
+document.addEventListener("click",e=>{const b=e.target.closest("[data-orig]");if(!b)return;const m=byId(b.dataset.orig);
+  $("#orig-h").textContent=`${m.city}${title(m)} ${m.name}｜2022 選舉公報原件`;
+  const im=$("#orig-img");im.src=`bulletin/${m.id}.webp`;im.alt=`${m.name} 在 2022 選舉公報上的政見欄原件`;
+  $("#orig-link").href=CEC[m.id];
+  if(odlg.showModal)odlg.showModal();else odlg.setAttribute("open","")});
+$("#orig-close").onclick=()=>odlg.close?odlg.close():odlg.removeAttribute("open");
+odlg.addEventListener("click",e=>{if(e.target===odlg)odlg.close()});
 dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
 /* nav highlight */
 const navA=[...document.querySelectorAll(".navlinks a")];
